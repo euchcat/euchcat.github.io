@@ -1,0 +1,169 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="description" content="Developpement sur micros AVR Atmel">
+    <meta name="keywords" content="Atmel,Avr,Microcontrôleurs,Microcontroleur,Assembleur,Programmation,Développement">
+    <meta name="GENERATOR" content="Geany/1.36 [fr] (Ubuntu 20.04; I) [Netscape]">
+    <title>Atmel AVR : Le site de Lionel</title>
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+
+  <body>
+    <a name="haut"></a>
+    <div class="centrer-txt">
+      <h1>Atmel AVR</h1>
+      <hr>
+    </div>
+
+    <div>
+      <p>
+        <a name="Edito"></a>
+        <b><u>L'EDITO:</u></b>
+      </p>
+      <p>Un site plus complet est à l'étude et en construction,
+      en attendant les liens ont été réactualisés et complétés.
+      Enfin toute initiative ou proposition pour
+      améliorer l'ensemble est bienvenue. Toutes publicités n'ayant
+      aucun rapport avec les microcontrôleurs ont été purement virées.
+      </p>
+    </div>
+    <p>Le but: Développer une synergie pour la progression
+    et le confort de tous, ramer seul est toujours plus long et pénible
+    qu'à plusieurs (dixit)... ;-).
+    <br>
+    Ce Site est "en cours", beaucoup de choses sont encore à faire, pour le faire évoluer
+    n'hésitez pas à <a href="#Contact">me contacter</a>
+    toute idée ou suggestion est la bienvenue, Je vous en remercie d'avance.
+    <br><br>
+    </p>
+
+    <p>
+        <a name="Isprog"></a>
+        <b><u>LE PROGRAMMATEUR IN SITU : ISPROG</u></b>
+    </p>
+
+    <p>J'ai mis au point un programmateur "in-situ" pour la famille AVR (1200 au 8515),
+      il se connecte sur un port série et est piloté avec le petit programme avrp de Jon Anders Haugum.
+      De plus il sert aussi d'interface RS232, la commutation se fait à l'aide d'un simple interrupteur,
+      le schéma et le mode d'emploi ainsi que le logiciel de pilotage se trouvent ici.
+      Pour tout problème ou remarque d'amélioration <a href="#Contact">contactez moi.</a>
+    </p>
+
+    <p>Caractéristiques:
+    <br>
+    Programmateur de microcontroleurs AVR in situ et interface de dialogue RS232.
+    <br>
+    Logiciel de programmation ISP embarqué: Avr921.hex,
+    dérivé du programme Avr910 du constructeur atmel.
+    <br>
+    Logiciel de commande sous dos: Avrp1 de Jon Anders Haugum.
+    <br>
+    Alimentation à partir du montage cible ou source de tension 5V externe.
+    </p>
+
+    <p>Vue du Schéma général: <br>
+      (Faut vraiment que je le fasse au propre, je sais...)<br>
+    </p>
+    <div class="centrer-txt">
+    <p><img width=100% alt="Programmateur ISP" src="img/isprog.gif"></p>
+    </div>
+
+    <p>Fonctionnement:<br>
+    Le uC AT90S1200 est le coeur du montage et contient le soft embarqué Avr921.hex
+    qui permet le respect des chronogrammes de programmation ISP préconisés par le constructeur
+    pour la programmation/lecture de la mémoire flash de programme, de l'Eeprom de donnée interne
+    ainsi que des fusibles de verrouillage à la relecture et/ou programmation.
+    <br>
+    Le soft Avr921.hex est une adaptation du fichier original Avr910 de chez atmel,
+    les sorties Miso et Mosi ont été inversées pour que le soft original fonctionne.
+    <br>
+    Le CI Max 232 assure l'interfaçage des signaux TTL/RS232 entre le circuit et le PC.
+    <br>
+    Le CI 4066 est un quadruple commutateur qui permet l'utilisation du montage comme simple
+    interface de dialogue entre votre montage et un terminal quelconque,à l'aide des lignes Rxd et Txd,
+    la commutation entre la fonction programmateur et interface de dialogue est assurée
+    par un simple interrupteur à deux positions.
+    </p>
+
+    <p>Un logiciel de commande graphique pour Windows/Linux est en cours de développement,
+    à suivre...
+    </p>
+
+    <p>Les fichiers nécessaires sont compressés dans l'archive:
+    <a href="pub/SoftsIsp.zip">SoftsIsp.zip</a>
+    </p>
+
+    <hr>
+
+    <div class="centrer-txt">
+    <p>
+        <a name="Liens"></a>
+        <b><u>LIENS CONCERNANT LES MICROCONTRÔLEURS AVR:</u></b>
+    </p>
+    </div>
+
+    <p>
+      <ul>
+        <li>
+          <a href="http://www.atmel.com/products/AVR/" target="_blank">Le Site ATMEL AVR (Actuellement Microchip)</a>
+        </li>
+        <li>
+          <a href="https://www.carta.tech/man-pages/man1/avrp.1.html" target="_blank">La page de Jon Anders Haugum (logiciel de commande du programmateur)</a>
+        </li>
+        <li>
+          <a href="http://members.tripod.com/Stelios_Cellar/AVR/AVR%20Info.html" target="_blank">La Page De Stelios (obsolète mais il reste quelques liens intéressants)</a>
+        </li>
+        <li>
+          <a href="http://www.mcselec.com/" target="_blank">Bascom AVR, compilateur basic de très bonne qualité</a>
+        </li>
+        <li>
+          <a href="https://web.archive.org/web/20131120062514/http://www.ipass.net/hammill/newavr.htm" target="_blank">Une page excellente de Brian Hammill pleine de ressources.</a>
+        </li>
+        <li>
+          <a href="http://www.avrfreaks.net/" target="_blank">Un portail dédié aux microcontroleurs Atmel AVR</a>
+        </li>
+      </ul>
+    </p>
+    <br>
+
+    <hr><a name="Contact"></a>
+
+    <div class="centrer-txt">
+      <br>
+      <b><u>POUR ME JOINDRE, ME POSER UNE QUESTION, VOS SUGGESTIONS:</u></b>
+    <p>
+        Mon adresse de messagerie électronique<br>
+        <a href="mailto:lionel_guid@yahoo.fr">contact@Cliquez-pour-ouvrir-la-messagerie</a>
+        <br>
+    </p>
+    </div>
+
+    <hr >
+    <div class="centrer-txt">
+      <p>|  <a href="#Edito">L'éditorial</a>
+         |  <a href="#Isprog">Isprog</a>
+         |  <a href="#Liens">Liens AVR</a>
+         |  <a href="#Contact">Contact</a>
+         |  <a href="motoroP1.html">Page Motorola</a>
+         |  Microchip
+         |  <a href="index.html">Page d'accueil</a>
+         |
+      </p>
+    </div>
+    <hr>
+
+    <div>
+      <ul id=menu>
+        <li><a href="#Edito">Editorial</a></li>
+        <li><a href="#Isprog">Isprog</a></li>
+        <li><a href="#Liens">Liens AVR</a></li>
+        <li><a href="#Contact">Contact</a></li>
+        <li><a href="motoroP1.html">Page Motorola</a></li>
+        <li>Microchip</li>
+        <li><a href="index.html">Page d'accueil</a></li>
+      </ul>
+    </div>
+
+  </body>
+</html>

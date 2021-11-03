@@ -1,0 +1,64 @@
+/* Feuille de style du site G.L Informatique */
+
+body {color: rgb(192, 192, 192);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.1em;
+    background-color: rgb(32, 32, 32);
+    padding: 0% 11% 0% 5%;
+}
+h1 {color: #c64f18;
+    font-size: 2.4em
+}
+h2 {color: darkorange;
+    font-size: 1.6em
+}
+b {font-weight: bold;
+}
+u {text-decoration: underline;
+}
+
+/* Style des liens */
+a:link {color: limegreen}
+a:visited {color: royalblue}
+a:hover {color: orange; background: black;}
+
+/* Définitions de classes perso */
+.defil {color: #fcfc80;
+    background-color: #536475;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Sans Unicode', Verdana, sans-serif;
+}
+.centrer-txt {text-align: center;
+    width: auto;
+}
+
+#menu {
+    position: fixed;
+    right: 2px;
+    top: 10%;
+    width: 140px;
+    margin: 0 0 0 0;
+    padding: 10px 0px 10px 0px;
+    font-weight: bold;
+    font-size: 1.1em;
+    text-align: right;
+    text-indent: 0px;
+    color: rgb(194, 192, 209);
+    border: 3px solid hsla(190, 12%, 31%, 0.2);
+    /*border-right: none;*/
+    border-radius: 40px 10px 10px 10px;
+    /* Générateur de code couleur -- http://www.workwithcolor.com/hsl-color-picker-01.htm */
+    background: hsla(182, 17%, 29%, 0.2);
+    z-index: 2;
+  }
+
+#menu li {
+    margin: 0;
+    list-style-type: none;
+  }
+
+#menu a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+#menu a:hover {color: orange; background: black;}
