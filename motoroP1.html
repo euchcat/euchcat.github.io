@@ -27,31 +27,45 @@
           Pour ceux que cela intéresserait, j'ai créé quelques routines perso,
           dont des routines de communications séries et un driver i2c entre autres...
     </p>
-    <p>
-          Ce Site évolue, beaucoup de choses sont encore à faire,
-          pour le faire évoluer n'hésitez pas à <a href="#Contact">me contacter</a>
-          toute idée ou suggestion est la bienvenue, Je vous en remercie d'avance.
-    </p>
+    <hr />
     <p><a name="news"></a>
-      <b><u>QUOI DE NEUF...</u></b></p>
-    <p>En attendant vous pouvez aller jeter un oeil sur les <a href="#Liens%20Motorola">liens</a> ci-dessous si vous recherchez des infos sur ce micro.</p>
-    <div class="centrer-txt">
-      <img src="img/encours2.gif" alt="en cours" width="59" height="59"><img style="width: 127px; height: 99px" alt="En construction" src="img/underconst1.gif">
-    </div>
-    <hr>
-    <p><a name="Liens Motorola"></a>
-        <b><u>QUELQUES LIENS :</u></b>
-    </p>
-    <p>
-      <ul>
-      <li>
-        <a href="http://zzzorg.pagesperso-orange.fr/program.htm" target="_blank">Un programmateur (sur port //) et son programme</a></li>
-      <li>
-        <a href="http://felixpopineau.blogspot.in/2014/07/realisation-base-de-microcontroleur.html" target="_blank">Une page pleine d'infos sur le 68705: (merci Félix)</a></li>
-      </ul>
-    </p>
-    <hr>
-    <div class="centrer-txt">
+      <h3><u>Relire l'EEPROM d'un 68705P3S déjà programmé</u></h3>
+      <p>(Discussion traduite d'un forum datant de 1996...)</p>
+      <p><em>Question:</em><br />
+      est-il possible de relire l'EPROM de la monopuce 68705p3 ?
+      si oui alors comment ?</p>
+      <br />
+      <p><em>Réponse:</em><br />
+      Il existe un algorithme complexe que je n'ai pas encore essayé...<br />
+      Il utilise la séquence de vérification de programme du 68705 pour vous indiquer quand une image d'un programme (externe) n'est pas conforme au contenu de l'EEPROM.<br />
+      La séquence de la partie vérification du programme s'interrompt (je pense) lorsqu'elle rencontre la première adresse avec un contenu qui ne correspond pas.</p>
+      <ol>
+      <li>Configurer le circuit de programmation 68705, à l'aide d'une RAM pilotée par un microprocesseur à la place de l'EPROM.</li>
+      <li>Remplissez la RAM avec tous les octets à &quot;0&quot;.</li>
+      <li>Réglez la tension de programmation à zéro. (VPP)<br />
+      (ainsi le programme original du chip ne sera pas modifié)</li>
+      <li>Démarrez la séquence de programmation et lorsque la séquence de vérification démarre, vérifiez à quelle adresse la séquence de vérification échoue.</li>
+      <li>Si la vérification échoue à la première adresse, incrémentez les données dans la première adresse RAM et répétez les étapes 4 et 5 jusqu'à ce que la vérification passe.</li>
+      <li>Répétez les étapes 3 à 5 pour chaque adresse suivante.<br />
+      Lorsque toutes les adresses se vérifient correctement, la RAM contient alors une image de l'EPROM.</li>
+      </ol>
+      <p><strong>Une amélioration (pour la programmation).</strong><br />
+      La ROM de programmation du bootstrap sautera la programmation d'un octet si la valeur est 0.<br />
+      Chaque octet non nul prendra plusieurs millisecondes de programmation (50 ?), mais les octets 0 sauteront l'étape de programmation.<br />
+      Vous pouvez déterminer dans quelle passe se trouve le bootstrap se trouve par les sorties du lecteur de LED.
+      Il programme la pièce entière et puis vérifie.<br />
+      Donc, pendant la programmation, donnez-lui une valeur 0,
+      (en mettant la tension de programmation VPP à 0 pour ne pas effacer le programme original en EEPROM)
+      puis basculez vers la mémoire de données pour la vérification.</p>
+      <p><strong>Autre témoignage de l'astuce (valable aussi pour les 16F84 apparemment):</strong><br />
+      A l'époque il existait effectivement une astuce pour pomper le code.<br />
+      On se servait de la fonction de vérification du code après programmation.<br />
+      Le principe est le suivant:<br />
+      on réalise un programme qui entre dans la phase de vérification du code et on présente 00 pour le premier octet, le chip répond pas bon, donc on présente 01 etc jusqu'à 255 maxi<br />
+      quand le chip répond OK pour le premier octet, on passe au deuxième, et pareil pour les octets suivants.</p>
+      <br />
+    <hr />
+     <div class="centrer-txt">
       <p><a name="Contact"></a><b>
           <u>
               POUR ME JOINDRE, ME POSER UNE QUESTION, VOS SUGGESTIONS:
